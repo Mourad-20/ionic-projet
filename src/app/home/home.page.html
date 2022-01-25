@@ -1,20 +1,23 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-card>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+        <ion-button slot="start" routerLink="/singin">
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+            S'IDENTIFIER
+
+        </ion-button>
+        <ion-button slot="end" routerLink="/singup">
+            S'ENREGISTRER
+        </ion-button>
+    </ion-toolbar>
+    <img src="https://firebasestorage.googleapis.com/v0/b/miniprojet01012022.appspot.com/o/logohome.png?alt=media&token=ea96f960-09af-4072-9b4d-afab98140bb7" />
+
+    <ion-toolbar>
+        <ion-buttons slot="end" class="btncolor" fill="clear" routerLink="/tabs">
+
+            Passer cett etape
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+
+
+        </ion-buttons>
+    </ion-toolbar>
+</ion-card>

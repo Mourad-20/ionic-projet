@@ -1,0 +1,62 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Connecter vous </ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="card-background-page">
+
+
+<div *ngIf="!connected">
+
+    
+
+   
+        <img src="https://firebasestorage.googleapis.com/v0/b/miniprojet01012022.appspot.com/o/logohome.png?alt=media&token=ea96f960-09af-4072-9b4d-afab98140bb7" />
+        <form>
+            <ion-item lines="full">
+                <ion-label position="floating">Email</ion-label>
+                <ion-input type="text" [(ngModel)]="email" name="email" required></ion-input>
+            </ion-item>
+
+            <ion-item lines="full">
+                <ion-label position="floating">Password</ion-label>
+                <ion-input type="password" [(ngModel)]="pass" name="pass" required></ion-input>
+            </ion-item>
+
+            <ion-row>
+                <ion-col>
+                    <ion-button (click)="Auth()" type="submit">SE CONNECTER</ion-button>
+                </ion-col>
+
+            </ion-row>
+
+        </form>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+                Vous n'avez pas un compte?
+                <ion-buttons slot="end" fill="clear" routerLink="/singup">
+
+                    <h6>S'inscrire</h6>
+
+
+
+                </ion-buttons>
+            </ion-buttons>
+
+        </ion-toolbar>
+        <ion-toolbar>
+            <ion-buttons slot="end" class="btncolor" fill="clear" routerLink="/tabs">
+
+                Passer cett etape
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+
+
+            </ion-buttons>
+        </ion-toolbar>
+  
+</div>
+  </ion-content>

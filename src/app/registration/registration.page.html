@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Register</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <img src="https://firebasestorage.googleapis.com/v0/b/miniprojet01012022.appspot.com/o/logohome.png?alt=media&token=ea96f960-09af-4072-9b4d-afab98140bb7" />
+    <form [formGroup]="userForm">
+      
+        <ion-item lines="full">
+            <ion-label position="floating">Nom</ion-label>
+            <ion-input type="text" formControlName="Nom" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">Prenom</ion-label>
+            <ion-input type="text" formControlName="Prenom" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">Email</ion-label>
+            <ion-input type="text" formControlName="Email" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+            <ion-label position="floating">Tel</ion-label>
+            <ion-input type="text" formControlName="Tel" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="full">
+            <ion-label position="floating">Mot de passe</ion-label>
+            <ion-input type="password" formControlName="MDP" required></ion-input>
+        </ion-item>
+
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" (click)="sinup()">S'INSCRIRE</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+            Vous avez deja un compte?
+            <ion-buttons slot="end" fill="clear" routerLink="/singin">
+
+                <h6>S'identifier</h6>
+
+
+
+            </ion-buttons>
+        </ion-buttons>
+
+    </ion-toolbar>
+    <ion-toolbar>
+       <!--  <ion-buttons slot="end" class="btncolor" fill="clear" routerLink="/tabs"> -->
+<ion-buttons slot="end" class="btncolor" fill="clear" (click)="addpay()">
+            Passer cett etape
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+
+
+        </ion-buttons>
+    </ion-toolbar>
+</ion-content>

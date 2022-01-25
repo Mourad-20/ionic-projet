@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Pre."></ion-back-button>
+    </ion-buttons>
     <ion-title>
-      Tab Two
+      {{pay.category}}
     </ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)] = "searchTerm" (ngModelChange) = "chargerArticlebyname()"></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+
+
+<ion-content class="card-background-page">
+<div  *ngIf="!show">
+  <ion-list>
+    <ion-item detail *ngFor="let ville of villes" routerLink="/tabs/pays/villes/voyages/{{ville.key}}">
+      <div slot="start" class="image">
+        <img src="{{ville.pic}}">
+      </div>
+      <ion-label>
+        <div class="flex_box">
+          <h5>{{ ville.name}}</h5>
+         
+        </div>
+       
+      </ion-label>
+    </ion-item>
+
+  
+</ion-list>
+</div>
+  <div id="loadingBlock" class="preloader" *ngIf="show">
+    <div class="loader">
+      <div class="loader__figure"></div>
+      <p class="loader__label">Loading</p>
+    </div>
+  </div>
+
+
+</ion-content>

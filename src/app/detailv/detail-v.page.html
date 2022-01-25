@@ -1,0 +1,115 @@
+<!-- -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="Conv."></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+     {{trip.name}}
+    </ion-title>
+  </ion-toolbar>
+ 
+</ion-header>
+
+
+<ion-content class="common-bg">
+  <!--slides-->
+  <ion-slides class="to-top" pager>
+    <ion-slide>
+      <img src="{{trip.pic}}" alt="">
+    </ion-slide>
+  </ion-slides>
+
+  <!--services-->
+  <ion-grid class="dark-bg">
+    <ion-row>
+      <ion-col text-center>
+        <div class="text-sm">
+          <div>
+            <ion-icon name="calendar"  class="text-white"></ion-icon>
+            <span ion-text >{{ trip.date }}</span>
+            <ion-icon name="time" margin-left class="text-white" ></ion-icon>
+            <span ion-text  >{{ trip.dure}} jours</span>
+           <!--  <ion-icon name="list-box" margin-left class="text-white" ></ion-icon>
+            <span ion-text color="white" >Electronic voucher</span>
+          --> </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--high light-->
+  <div  padding>
+    <span ion-text color="dark" class="bold">Detail</span>
+    <ul class="highlight">
+      <li *ngFor="let highlight of trip.option">
+        <ion-icon name="checkmark" class="text-green"></ion-icon>
+        <span ion-text class="border-bottom">{{ highlight.libelle }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <!--booking form-->
+  <div class="booking-form card round" margin>
+    <div class="border-bottom" padding>
+      <h5>Ticket</h5>
+
+      <!--choose guest-->
+      <ion-grid class="filters" >
+        <ion-row>
+
+          <ion-col class="adult" >
+            <ion-text class="border-card" ><strong>{{ trip.prix }}DH</strong> Adults</ion-text>
+          </ion-col>
+
+          <ion-col class="button">
+            <ion-icon name="remove-circle" class="text-2x" tappable (click)="minusAdult()" [hidden]="adults < 2"
+              ></ion-icon>
+          </ion-col>
+
+          <ion-col class="text-2x">{{ adults }}</ion-col>
+
+          <ion-col class="button">
+            <ion-icon name="add-circle" class="text-2x"  (click)="plusAdult()" [hidden]="adults >3"></ion-icon>
+          </ion-col>
+
+        </ion-row>
+       <!--  <ion-row margin-top>
+          <ion-col width-70>
+            <span ion-text color="primary"><strong>{{ trip.price_child | currency:'USD':true }}</strong> Child (0-12
+              years)</span>
+          </ion-col>
+          <ion-col width-10 text-center>
+            <ion-icon name="remove-circle" class="text-2x" tappable (click)="minusChildren()" [hidden]="children < 1"
+              color="secondary"></ion-icon>
+          </ion-col>
+          <ion-col width-10 text-center>{{ children }}</ion-col>
+          <ion-col width-10 text-center>
+            <ion-icon name="add-circle" class="text-2x" tappable (click)="plusChildren()" color="secondary"></ion-icon>
+          </ion-col>
+        </ion-row> -->
+      </ion-grid>
+    </div>
+    <div  class="form-bottom">
+      <!--       <span ion-text color="dark" class="bold">{{ adults }} Adults</span> -->
+      <!--booking button-->
+      <ion-buttons  class="pull-right"   (click)="checkout()">Reserver {{ adults *
+        trip.prix }}DH
+      </ion-buttons>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  <!--description-->
+  <div class="border-bottom" >
+    <span ion-text color="primary" class="bold">DESCRIPTION</span>
+    <p ion-text>{{ trip.descreption }}</p>
+  </div>
+
+  <!--address-->
+  <div class="border-bottom"  >
+    <span ion-text color="primary" class="bold">LOCATION</span>
+    <ion-text *ngFor="let x of pay"><p> {{ x.ville }} , {{ x.pay }}</p></ion-text>
+  </div>
+</ion-content>
+

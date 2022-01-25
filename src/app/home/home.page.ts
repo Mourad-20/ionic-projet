@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Globals } from '../globals';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
-
+  constructor(private g:Globals) {}
+ ngOnInit() {
+    
+  
+    
+  }
 }

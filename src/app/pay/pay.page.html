@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            Pays
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-searchbar [(ngModel)] = "searchTerm" (ngModelChange) = "chargerArticlebyname()"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="card-background-page">
+<div *ngIf="!show">
+    <ion-card *ngFor="let cat of items">
+        <img src="{{cat.pic}}" />
+        <div class="card-title">{{ cat.category}}</div>
+    
+        <ion-buttons fill="clear" routerLink="/tabs/pays/{{cat.key}}">
+    
+           Details
+            <ion-icon name="arrow-forward-outline"></ion-icon>
+    
+    
+        </ion-buttons>
+    
+    
+    </ion-card>
+</div>
+
+    <div id="loadingBlock" class="preloader" *ngIf="show">
+        <div class="loader">
+            <div class="loader__figure"></div>
+            <p class="loader__label">Loading</p>
+        </div>
+    </div>
+
+
+
+
+
+</ion-content>

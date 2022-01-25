@@ -8,7 +8,17 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'pays',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../pay/pay.module').then(m => m.PayPageModule)
+          }
+        ]
+      },
+      {
+        path: 'pays/:id',
         children: [
           {
             path: '',
@@ -18,7 +28,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: 'tab2',
+        path: 'pays/villes/:id',
         children: [
           {
             path: '',
@@ -27,6 +37,47 @@ const routes: Routes = [
           }
         ]
       },
+       {
+        path: 'search',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../search/search.module').then(m => m.SearchPageModule)
+          }
+        ]
+      },
+         {
+        path: 'pays/villes/voyages/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../voyage/voyage.module').then(m => m.VoyagePageModule)
+          }
+        ]
+      },
+      {
+        path: 'pays/villes/voyages/detail/:id',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../detailv/detail-v.module').then(m => m.DetailVPageModule)
+          }
+        ]
+      },
+         {
+        path: 'voyages',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../voyage/voyage.module').then(m => m.VoyagePageModule)
+          }
+        ]
+      },
+      
       {
         path: 'tab3',
         children: [
@@ -37,16 +88,26 @@ const routes: Routes = [
           }
         ]
       },
+       {
+        path: 'profile',
+        children: [
+          {
+            path: '',
+            loadChildren: () =>
+              import('../profile/profile.module').then(m => m.ProfilePageModule)
+          }
+        ]
+      },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/pays',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/home',
     pathMatch: 'full'
   }
 ];

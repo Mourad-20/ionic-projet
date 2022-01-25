@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Titele </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="card-background-page">
+  <div  class="connected" *ngIf="!show">
+
+
+
+
+
+    
+         <img src="https://firebasestorage.googleapis.com/v0/b/miniprojet01012022.appspot.com/o/profile.png?alt=media&token=f935ecb9-8a13-4055-845a-63ab474c92ff">
+
+
+   
+    <ion-list>
+      <ion-list-header> Profil </ion-list-header>
+      <ion-item>
+        <ion-label>Nom: {{profil.Nom}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Prenom: {{profil.Prenom}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email: {{profil.Email}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Tel: {{profil.Tel}}</ion-label>
+
+      </ion-item>
+
+
+    </ion-list>
+
+  </div>
+  <div id="loadingBlock" class="preloader" *ngIf="show">
+    <div class="loader">
+      <div class="loader__figure"></div>
+      <p class="loader__label">Loading</p>
+    </div>
+  </div>
+
+</ion-content>
